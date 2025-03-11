@@ -16,5 +16,11 @@ namespace CentroEstetica
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.ShowDialog();
+        }
     }
 }
