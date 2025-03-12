@@ -37,6 +37,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnAcceder = new System.Windows.Forms.Button();
+            this.labelUsuarioContraseniaIncorrecto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -60,7 +61,7 @@
             this.btnCerrarLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
             this.btnCerrarLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarLogin.Image")));
-            this.btnCerrarLogin.Location = new System.Drawing.Point(615, 6);
+            this.btnCerrarLogin.Location = new System.Drawing.Point(615, 7);
             this.btnCerrarLogin.Name = "btnCerrarLogin";
             this.btnCerrarLogin.Size = new System.Drawing.Size(12, 12);
             this.btnCerrarLogin.TabIndex = 2;
@@ -78,9 +79,9 @@
             this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(574, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(578, 6);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(21, 15);
+            this.btnMinimizar.Size = new System.Drawing.Size(17, 15);
             this.btnMinimizar.TabIndex = 3;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -96,6 +97,7 @@
             this.txtUsuario.Size = new System.Drawing.Size(197, 19);
             this.txtUsuario.TabIndex = 4;
             this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             // 
             // txtContrasenia
             // 
@@ -109,6 +111,7 @@
             this.txtContrasenia.TabIndex = 5;
             this.txtContrasenia.Text = "Contraseña";
             this.txtContrasenia.UseSystemPasswordChar = true;
+            this.txtContrasenia.Enter += new System.EventHandler(this.txtContrasenia_Enter);
             // 
             // pictureBox1
             // 
@@ -136,7 +139,7 @@
             this.btnAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcceder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcceder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.btnAcceder.Location = new System.Drawing.Point(369, 170);
+            this.btnAcceder.Location = new System.Drawing.Point(369, 183);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(209, 34);
             this.btnAcceder.TabIndex = 8;
@@ -144,12 +147,24 @@
             this.btnAcceder.UseVisualStyleBackColor = true;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 
+            // labelUsuarioContraseniaIncorrecto
+            // 
+            this.labelUsuarioContraseniaIncorrecto.AutoSize = true;
+            this.labelUsuarioContraseniaIncorrecto.BackColor = System.Drawing.Color.Transparent;
+            this.labelUsuarioContraseniaIncorrecto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsuarioContraseniaIncorrecto.ForeColor = System.Drawing.Color.Tomato;
+            this.labelUsuarioContraseniaIncorrecto.Location = new System.Drawing.Point(354, 150);
+            this.labelUsuarioContraseniaIncorrecto.Name = "labelUsuarioContraseniaIncorrecto";
+            this.labelUsuarioContraseniaIncorrecto.Size = new System.Drawing.Size(0, 17);
+            this.labelUsuarioContraseniaIncorrecto.TabIndex = 9;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(639, 258);
+            this.Controls.Add(this.labelUsuarioContraseniaIncorrecto);
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -180,5 +195,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnAcceder;
+        private System.Windows.Forms.Label labelUsuarioContraseniaIncorrecto;
     }
 }
