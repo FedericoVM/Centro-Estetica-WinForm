@@ -59,26 +59,10 @@ namespace CentroEstetica
 
                 }
 
-
-                switch (usuario.Rol)
-                {
-
-                    case "Dueña":
-                        this.Hide();
-                        paginaPrincipal.ShowDialog();
-                        
-                        break;
-                    case "Empleado":
-                        this.Hide();
-                        paginaPrincipal.ShowDialog();
-                        
-                        break;
-                    default:
-                        MessageBox.Show("Rol no reconocido");
-                        break;
-                }
-
-                Close();
+                FormPrincipal paginaPrincipal = new FormPrincipal(usuario);
+                this.Hide();
+                paginaPrincipal.ShowDialog();
+                this.Close();
 
 
             }
