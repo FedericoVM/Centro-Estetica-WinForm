@@ -18,7 +18,7 @@ namespace negocio
 
 			try
 			{
-				baseDatos.setConsulta("Select * from Clientes");
+				baseDatos.setConsulta("Select * from Clientes where Activo = 1");
 				baseDatos.solicitarDatos();
 
                 while (baseDatos.Lector.Read())
@@ -113,6 +113,29 @@ namespace negocio
 			}
 		}
 
-		
+        public void darBajaCliente(int idCliente)
+        {
+            accesoBD baseDatos = new accesoBD();
+
+            try
+            {
+				baseDatos.setConsulta("Update Clientes set Activo = 0 where ClienteID = @id ");
+				baseDatos.setParemtros("@id", idCliente);
+				baseDatos.ejecutarLectura();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+			finally
+			{
+				baseDatos.cerrarConexion();
+			}
+
+
+
+        }
     }
 }
