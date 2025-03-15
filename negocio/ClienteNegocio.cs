@@ -10,7 +10,6 @@ namespace negocio
 {
     public class ClienteNegocio
     {
-
 		public List<Cliente> listarClientes()
 		{
 			accesoBD baseDatos = new accesoBD();
@@ -37,8 +36,6 @@ namespace negocio
 					clientes.Add(auxiliar);
                 }
 
-
-
                 return clientes;
 			}
 			catch (Exception ex)
@@ -46,10 +43,76 @@ namespace negocio
 
 				throw ex;
 			}
+			finally
+			{
+				baseDatos.cerrarConexion();
+			}
         }
 
+		public bool dniExistente(string dni)
+		{
+			accesoBD baseDatos = new accesoBD();
+			try
+			{
+				baseDatos.setConsulta("Select DNI Clientes where DNI = @dni");
+				baseDatos.setParemtros("@dni", dni);
+				baseDatos.solicitarDatos();
+
+                if (baseDatos.Lector.Read())
+                {
+					return true;
+                }
+                else
+                {
+					return false;
+                }
+
+            }
+			catch (Exception)
+			{
+
+				throw;
+			}
+
+			finally
+			{
+				baseDatos.cerrarConexion();
+			}
+		}
+		public void agregarCliente(Cliente cliente)
+		{
+			accesoBD baseDatos = new accesoBD();
+			try
+			{
+
+                if (dniExistente(cliente.Dni))
+                {
+                    throw new Exception("Ya existe un cliente con el mismo DNI.");
+                }
 
 
+                baseDatos.setConsulta("Insert Into Clientes (Nombre, Apellido, DNI, Telefono, Email, FechaNacimiento, FechaRegistro, Activo) VALUES(@nombre,@apellido,@dni,@telefono,@email,@fechaNacimiento,@fechaRegistro,1)");
+				baseDatos.setParemtros("@nombre",cliente.Nombre);
+                baseDatos.setParemtros("@apellido",cliente.Apellido);
+                baseDatos.setParemtros("@dni", cliente.Dni);
+                baseDatos.setParemtros("@telefono",cliente.Telefono);
+                baseDatos.setParemtros("@email",cliente.Email);
+                baseDatos.setParemtros("@fechaNacimiento",cliente.FechaNacimiento);
+				baseDatos.setParemtros("@fechaRegistro", cliente.FechaRegistro);
 
+				baseDatos.ejecutarLectura();
+            }
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+			finally
+			{
+				baseDatos.cerrarConexion();
+			}
+		}
+
+		
     }
 }
