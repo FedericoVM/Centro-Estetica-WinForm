@@ -33,6 +33,7 @@ namespace negocio
 					auxiliar.FechaNacimiento = (DateTime)baseDatos.Lector["FechaNacimiento"];
 					auxiliar.FechaRegistro = (DateTime)baseDatos.Lector["FechaRegistro"];
 
+
 					clientes.Add(auxiliar);
                 }
 
