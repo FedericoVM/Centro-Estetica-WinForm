@@ -29,11 +29,13 @@ namespace CentroEstetica
 
         }
 
-        public void mostrarOpcionesSegunRol(string rol) {
+        public void mostrarOpcionesSegunRol(string rol)
+        {
 
             switch (rol)
             {
                 case "Dueña":
+
                     btnInventario.Visible = true;
                     btnFinanzas.Visible = true;
                     btnPersonal.Visible = true;
@@ -66,7 +68,7 @@ namespace CentroEstetica
 
         private void btnMinimizarVentana_Click(object sender, EventArgs e)
         {
-            this.WindowState=FormWindowState.Minimized;
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnRestaurarVentana_Click(object sender, EventArgs e)
@@ -77,7 +79,7 @@ namespace CentroEstetica
         }
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            labelSaludos.Text = $"Bienvenido/a  {usuario.Nombre} - {usuario.Rol}";
+            //labelSaludos.Text = $"Bienvenido/a  {usuario.Nombre} - {usuario.Rol}";
             mostrarOpcionesSegunRol(rolUsuario);
         }
 
@@ -88,5 +90,38 @@ namespace CentroEstetica
             formLogin.ShowDialog();
             this.Close();
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+
+            mostrarFormulario(new FormClientes(rolUsuario));
+
+        }
+
+        private void mostrarFormulario(object formularioHijo)
+        {
+            if (this.panelContenedorFormulario.Controls.Count > 0)
+            {
+                this.panelContenedorFormulario.Controls.RemoveAt(0);
+            }
+
+            Form formularioH = formularioHijo as Form;
+            formularioH.TopLevel = false;
+            formularioH.Dock = DockStyle.Fill;
+            this.panelContenedorFormulario.Controls.Add(formularioH);
+            this.panelContenedorFormulario.Tag = formularioH;
+            formularioH.Show();
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

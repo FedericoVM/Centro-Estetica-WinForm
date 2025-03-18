@@ -16,5 +16,6 @@ namespace dominio
         public string Email { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public DateTime FechaRegistro { get; set; }
+        public bool Activo {  get; set; } 
     }
 }

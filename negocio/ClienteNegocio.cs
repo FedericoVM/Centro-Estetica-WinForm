@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using dominio;
 using basesDatos;
+using System.Data.SqlTypes;
 
 namespace negocio
 {
@@ -18,13 +19,13 @@ namespace negocio
 
 			try
 			{
-				baseDatos.setConsulta("Select * from Clientes where Activo = 1");
+				baseDatos.setConsulta("Select * from Clientes");
 				baseDatos.solicitarDatos();
 
                 while (baseDatos.Lector.Read())
                 {
 					Cliente auxiliar = new Cliente();
-					auxiliar.IdCliente = (int)baseDatos.Lector["IdCliente"];
+					auxiliar.IdCliente = (int)baseDatos.Lector["ClienteID"];
 					auxiliar.Nombre = (string)baseDatos.Lector["Nombre"];
 					auxiliar.Apellido = (string)baseDatos.Lector["Apellido"];
 					auxiliar.Dni = (string)baseDatos.Lector["DNI"];
@@ -32,6 +33,7 @@ namespace negocio
 					auxiliar.Email = (string)baseDatos.Lector["Email"];
 					auxiliar.FechaNacimiento = (DateTime)baseDatos.Lector["FechaNacimiento"];
 					auxiliar.FechaRegistro = (DateTime)baseDatos.Lector["FechaRegistro"];
+					auxiliar.Activo = (bool)baseDatos.Lector["Activo"];
 
 
 					clientes.Add(auxiliar);

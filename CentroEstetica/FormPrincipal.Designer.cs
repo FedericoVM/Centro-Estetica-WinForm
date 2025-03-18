@@ -45,7 +45,7 @@
             this.btnMaximizarVentana = new System.Windows.Forms.Button();
             this.btnMinimizarVentana = new System.Windows.Forms.Button();
             this.btnCerrarVentana = new System.Windows.Forms.Button();
-            this.labelSaludos = new System.Windows.Forms.Label();
+            this.panelContenedorFormulario = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelVentana.SuspendLayout();
@@ -66,7 +66,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(177, 663);
+            this.panelMenu.Size = new System.Drawing.Size(177, 587);
             this.panelMenu.TabIndex = 1;
             // 
             // btnCerrarSesion
@@ -78,7 +78,7 @@
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(6, 626);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(6, 550);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(165, 32);
             this.btnCerrarSesion.TabIndex = 10;
@@ -212,6 +212,7 @@
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // panelVentana
             // 
@@ -293,27 +294,24 @@
             this.btnCerrarVentana.UseVisualStyleBackColor = true;
             this.btnCerrarVentana.Click += new System.EventHandler(this.btnCerrarVentana_Click);
             // 
-            // labelSaludos
+            // panelContenedorFormulario
             // 
-            this.labelSaludos.AutoSize = true;
-            this.labelSaludos.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaludos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(198)))), ((int)(((byte)(194)))), ((int)(((byte)(84)))));
-            this.labelSaludos.Location = new System.Drawing.Point(215, 40);
-            this.labelSaludos.Name = "labelSaludos";
-            this.labelSaludos.Size = new System.Drawing.Size(0, 28);
-            this.labelSaludos.TabIndex = 7;
+            this.panelContenedorFormulario.Location = new System.Drawing.Point(177, 25);
+            this.panelContenedorFormulario.Name = "panelContenedorFormulario";
+            this.panelContenedorFormulario.Size = new System.Drawing.Size(783, 562);
+            this.panelContenedorFormulario.TabIndex = 3;
             // 
             // FormPrincipal
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
+            this.BackColor = System.Drawing.Color.Silver;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(960, 663);
-            this.Controls.Add(this.labelSaludos);
+            this.ClientSize = new System.Drawing.Size(960, 587);
             this.Controls.Add(this.panelVentana);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelContenedorFormulario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -323,7 +321,6 @@
             this.panelVentana.ResumeLayout(false);
             this.panelVentana.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -343,8 +340,8 @@
         private System.Windows.Forms.Button btnCerrarVentana;
         private System.Windows.Forms.Button btnMaximizarVentana;
         private System.Windows.Forms.Label labelUsuarioCabecera;
-        private System.Windows.Forms.Label labelSaludos;
         private System.Windows.Forms.Button btnRestaurarVentana;
+        private System.Windows.Forms.Panel panelContenedorFormulario;
     }
 }
 
